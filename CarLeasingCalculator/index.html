@@ -21,12 +21,6 @@
             </div>
 
             <div class="input-group">
-                <label for="car-value">Car Value (€10,000 - €200,000):</label>
-                <input type="text" id="car-value" value="120000">
-                <input type="range" value="120000" min="10000" max="200000" step="100">
-            </div>
-
-            <div class="input-group">
                 <label for="lease-period">Lease Period (months):</label>
                 <input type="text" id="lease-period" list="options-list">
                 <datalist id="options-list">
@@ -39,8 +33,15 @@
             </div>
 
             <div class="input-group">
+                <label for="car-value">Car Value (€10,000 - €200,000):</label>
+                <input type="text" id="car-value">
+                <input type="range">
+            </div>
+
+            <div class="input-group">
                 <label for="down-payment">Down Payment (10% - 50%):</label>
-                <input type="range" id="down-payment" value="60" min="10" max="50" step="5">
+                <input type="text" id="car-value">
+                <input type="range">
             </div>
         </div>
 
@@ -48,14 +49,18 @@
 
         <h2>Leasing Details</h2>
         <div class="leasing-details">
-            <p>Total Leasing Cost:</p>
-            <output>128408.32</output>
-            <p>Down Payment:</p>
-            <output>12000.00</output>
-            <p>Monthly Installment:</p>
-            <output>1940.14</output>
-            <p>Interest Rate:</p>
-            <output>2.99</output>
+            <div>
+                <p>Total Leasing Cost:</p>
+                <output>128408.32</output>
+                <p>Down Payment:</p>
+                <output>12000.00</output>
+            </div>
+            <div>
+                <p>Monthly Installment:</p>
+                <output>1940.14</output>
+                <p>Interest Rate:</p>
+                <output>2.99</output>
+            </div>
         </div>
     </div>
 </body>
