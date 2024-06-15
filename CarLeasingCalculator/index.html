@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Leasing Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Car Leasing Calculator</h1>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="car-type">Car Type:</label>
+                <select id="car-type">
+                    <option value="brand-new">Brand New</option>
+                    <option value="used">Used</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="car-value">Car Value (€10,000 - €200,000):</label>
+                <input type="text" id="car-value" value="120000">
+                <input type="range" value="120000" min="10000" max="200000" step="100">
+            </div>
+
+            <div class="input-group">
+                <label for="lease-period">Lease Period (months):</label>
+                <input type="text" id="lease-period" value="60">
+                <input type="range" value="60" min="12" max="60" step="12">
+            </div>
+
+            <div class="input-group">
+                <label for="down-payment">Down Payment (10% - 50%):</label>
+                <input type="range" id="down-payment" value="60" min="10" max="50" step="5">
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Leasing Details</h2>
+        <div class="leasing-details">
+            <p>Total Leasing Cost:</p>
+            <output>128408.32</output>
+            <p>Down Payment:</p>
+            <output>12000.00</output>
+            <p>Monthly Installment:</p>
+            <output>1940.14</output>
+            <p>Interest Rate:</p>
+            <output>2.99</output>
+        </div>
+    </div>
+</body>
+
+</html>
