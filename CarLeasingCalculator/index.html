@@ -28,8 +28,14 @@
 
             <div class="input-group">
                 <label for="lease-period">Lease Period (months):</label>
-                <input type="text" id="lease-period" value="60">
-                <input type="range" value="60" min="12" max="60" step="12">
+                <input type="text" id="lease-period" list="options-list">
+                <datalist id="options-list">
+                    <option value="12"></option>
+                    <option value="24"></option>
+                    <option value="36"></option>
+                    <option value="48"></option>
+                    <option value="60"></option>
+                </datalist>
             </div>
 
             <div class="input-group">
