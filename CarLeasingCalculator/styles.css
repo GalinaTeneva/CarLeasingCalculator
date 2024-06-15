@@ -55,14 +55,14 @@ input[type="range"] {
 .calculator {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 10px 55px;
     justify-content: center;
+    align-content: space-between;
 }
 
 .input-group {
     flex: 1 1 40%;
     box-sizing: border-box;
-    margin-bottom: 15px;
     text-align: left;
 }
 
