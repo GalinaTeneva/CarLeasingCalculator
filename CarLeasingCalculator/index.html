@@ -22,25 +22,24 @@
 
             <div class="input-group">
                 <label for="lease-period">Lease Period (months):</label>
-                <input type="text" id="lease-period" list="options-list">
-                <datalist id="options-list">
-                    <option value="12"></option>
-                    <option value="24"></option>
-                    <option value="36"></option>
-                    <option value="48"></option>
-                    <option value="60"></option>
-                </datalist>
+                <select id="lease-period">
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="36">36</option>
+                    <option value="48">48</option>
+                    <option value="60" selected>60</option>
+                </select>
             </div>
 
             <div class="input-group">
                 <label for="car-value">Car Value (€10,000 - €200,000):</label>
-                <input type="text" id="car-value">
+                <input type="text" id="car-value" value="120000">
                 <input type="range" id="car-value-slider" min="10000" max="200000" step="100">
             </div>
 
             <div class="input-group">
                 <label for="down-payment">Down Payment (10% - 50%):</label>
-                <input type="text" id="down-payment">
+                <input type="text" id="down-payment-percent" value="10">
                 <input type="range" id="down-payment-slider" min="10" max="50" step="5">
             </div>
         </div>
@@ -49,17 +48,13 @@
 
         <h2>Leasing Details</h2>
         <div class="leasing-details">
-            <div>
-                <p>Total Leasing Cost:</p>
-                <output>128408.32</output>
-                <p>Down Payment:</p>
-                <output>12000.00</output>
+            <div class="details-column">
+                <p>Leasing Cost: €<span id="total-cost"></span></p>
+                <p>Down Payment: €<span id="down-payment-amount"></span></p>
             </div>
-            <div>
-                <p>Monthly Installment:</p>
-                <output>1940.14</output>
-                <p>Interest Rate:</p>
-                <output>2.99</output>
+            <div class="details-column">
+                <p>Monthly Installment: €<span id="monthly-installment"></span></p>
+                <p>Interest Rate: <span id="interest-rate"></span></p>
             </div>
         </div>
     </div>
