@@ -31,7 +31,8 @@ hr {
     margin: 20px 0;
 }
 
-input[type="text"], select {
+input[type="text"],
+select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -49,7 +50,7 @@ input[type="range"] {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 30%;
+    width: 40%;
 }
 
 .calculator {
@@ -66,10 +67,7 @@ input[type="range"] {
     text-align: left;
 }
 
-/*.calculator div:nth-last-child(),
-.calculator div:nth-last-child() {
-    order: 1;
-}*/
+
 
 .leasing-details {
     display: flex;
@@ -82,6 +80,7 @@ input[type="range"] {
 }
 
 .leasing-details .details-column {
+    padding-right: 15px;
     display: inline-block;
     width: 48%;
     vertical-align: top;
@@ -92,14 +91,15 @@ input[type="range"] {
     border-right: 1px solid black;
 }
 
-@media(width <= 600px) {
+@media(width <=700px) {
 
     .container {
         height: 100vh;
         width: auto;
     }
 
-    .calculator, .leasing-details {
+    .calculator,
+    .leasing-details {
         flex-direction: column;
     }
 
@@ -113,5 +113,10 @@ input[type="range"] {
 
     .leasing-details .details-column:first-child {
         border-right: none;
+    }
+
+    .calculator > .input-group:nth-of-type(2),
+    .calculator > .input-group:nth-of-type(4) {
+        order: 2;
     }
 }
