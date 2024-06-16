@@ -73,8 +73,12 @@ input[type="range"] {
 
 .leasing-details {
     display: flex;
-    gap: 10px;
+    gap: 50px;
     justify-content: space-around;
+}
+
+.leasing-details p {
+    margin-bottom: 8px;
 }
 
 .leasing-details .details-column {
@@ -82,4 +86,32 @@ input[type="range"] {
     width: 48%;
     vertical-align: top;
     text-align: left;
+}
+
+.leasing-details .details-column:first-child {
+    border-right: 1px solid black;
+}
+
+@media(width <= 600px) {
+
+    .container {
+        height: 100vh;
+        width: auto;
+    }
+
+    .calculator, .leasing-details {
+        flex-direction: column;
+    }
+
+    .leasing-details {
+        gap: 8px;
+    }
+
+    .leasing-details .details-column {
+        width: auto;
+    }
+
+    .leasing-details .details-column:first-child {
+        border-right: none;
+    }
 }
