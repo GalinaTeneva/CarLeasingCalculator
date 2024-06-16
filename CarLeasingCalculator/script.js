@@ -13,31 +13,52 @@ function calculate() {
     const monthlyInstallmentOutput = document.getElementById("monthly-installment");
     const interestRateOutput = document.getElementById("interest-rate");
 
+    const carValueError = document.getElementById("car-value-error");
+    const downPaymentError = document.getElementById("down-payment-error");
+
     //The interest rates in percentage
     const INTEREST_RATE_NEW = 2.99;
     const INTEREST_RATE_USED = 3.70;
 
-    //Initial calculation
-    calculateLeasing();
-
     carValueInput.addEventListener("input", function () {
         let value = Number(carValueInput.value);
         carValueSlider.value = value;
-        calculateLeasing();
+
+        if (isNaN(value) || value < 10000 || value > 200000) {
+            carValueError.textContent = "Please enter a value between €10,000 and €200,000";
+            totalCostOutput.textContent = "";
+            downPaymentAmountOutput.textContent = "";
+            monthlyInstallmentOutput.textContent = "";
+            interestRateOutput.textContent = "";
+        } else {
+            carValueError.textContent = "";
+            calculateLeasing();
+        }
     });
 
     carValueSlider.addEventListener("input", function () {
         carValueInput.value = carValueSlider.value;
+        carValueError.textContent = "";
         calculateLeasing();
     });
 
-    downPaymentInput.addEventListener("input", function() {
+    downPaymentInput.addEventListener("input", function () {
         let value = Number(downPaymentInput.value);
         downPaymentSlider.value = value;
-        calculateLeasing();
+
+        if (isNaN(value) || value < 10 || value > 50) {
+            downPaymentError.textContent = "Please enter a percentage between 10% and 50%";
+            totalCostOutput.textContent = "";
+            downPaymentAmountOutput.textContent = "";
+            monthlyInstallmentOutput.textContent = "";
+            interestRateOutput.textContent = "";
+        } else {
+            downPaymentError.textContent = "";
+            calculateLeasing();
+        }
     });
 
-    downPaymentSlider.addEventListener("input", function() {
+    downPaymentSlider.addEventListener("input", function () {
         downPaymentInput.value = downPaymentSlider.value;
         calculateLeasing();
     });
@@ -54,7 +75,7 @@ function calculate() {
         let principalAmount = carValue - downPaymentAmount;
         let annualInterestRate = carTypeInput.value === 'brand-new' ? INTEREST_RATE_NEW : INTEREST_RATE_USED;
         let monthlyInterestRate = annualInterestRate / 12 / 100;
-        
+
         let monthlyInstallment = (principalAmount * (monthlyInterestRate) * Math.pow((1 + monthlyInterestRate), leasePeriod)) / (Math.pow((1 + monthlyInterestRate), leasePeriod) - 1);
         let totalCost = (monthlyInstallment * leasePeriod) + downPaymentAmount;
 
