@@ -13,6 +13,7 @@ function calculate() {
     const monthlyInstallmentOutput = document.getElementById("monthly-installment");
     const interestRateOutput = document.getElementById("interest-rate");
 
+    //The interest rates in percentage
     const INTEREST_RATE_NEW = 2.99;
     const INTEREST_RATE_USED = 3.70;
 
@@ -50,16 +51,17 @@ function calculate() {
         let downPaymentPercent = Number(downPaymentInput.value) / 100;
 
         let downPaymentAmount = carValue * downPaymentPercent;
-        let financedAmount = carValue - downPaymentAmount;
-        let interestRate = carTypeInput.value === 'brand-new' ? INTEREST_RATE_NEW : INTEREST_RATE_USED;
-        //Fix the formula for the total cost!!!
-        let totalCost = financedAmount * (1 + (interestRate / 100) * (leasePeriod / 12));
-        let monthlyInstallment = totalCost / leasePeriod;
+        let principalAmount = carValue - downPaymentAmount;
+        let annualInterestRate = carTypeInput.value === 'brand-new' ? INTEREST_RATE_NEW : INTEREST_RATE_USED;
+        let monthlyInterestRate = annualInterestRate / 12 / 100;
+        
+        let monthlyInstallment = (principalAmount * (monthlyInterestRate) * Math.pow((1 + monthlyInterestRate), leasePeriod)) / (Math.pow((1 + monthlyInterestRate), leasePeriod) - 1);
+        let totalCost = (monthlyInstallment * leasePeriod) + downPaymentAmount;
 
         totalCostOutput.textContent = totalCost.toFixed(2);
         downPaymentAmountOutput.textContent = downPaymentAmount.toFixed(2);
         monthlyInstallmentOutput.textContent = monthlyInstallment.toFixed(2);
-        interestRateOutput.textContent = interestRate.toFixed(2) + "%";
+        interestRateOutput.textContent = annualInterestRate.toFixed(2) + "%";
     }
 }
 
